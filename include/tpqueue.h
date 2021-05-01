@@ -4,23 +4,22 @@
 #include <cassert>
 template<typename T>
 class TPQueue {
-private:
+ private:
     T* arr;
     int size;
     int begin,
         end;
     int count;
-public:
-    TPQueue(int = 100);
+ public:
+TPQueue();
     ~TPQueue();
-
     void push(const T&);
     T pop();
     T get() const;
     bool isEmpty() const;
     bool isFull() const;
 };
-template<typename T> TPQueue<T>::TPQueue(int sizeQueue) : size(sizeQueue),
+template<typename T> TPQueue<T>::TPQueue() : size(100),
 begin(0), end(0), count(0) {
     arr = new T[size + 1];
 }
@@ -42,8 +41,7 @@ template<typename T> void TPQueue<T>::push(const T& item) {
                 continue;
             }
         }
-    }
-    else {
+    } else {
         arr[begin] = item;
     }
     count++;
