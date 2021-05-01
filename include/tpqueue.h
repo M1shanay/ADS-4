@@ -4,13 +4,13 @@
 #include <cassert>
 template<typename T>
 class TPQueue {
- private:
+private:
     T* arr;
     int size;
     int begin,
         end;
     int count;
- public:
+public:
     TPQueue(int = 100);
     ~TPQueue();
 
@@ -20,17 +20,17 @@ class TPQueue {
     bool isEmpty() const;
     bool isFull() const;
 };
-template<typename T> TPQueue<T>::TPQueue(int sizeQueue): size(sizeQueue),
+template<typename T> TPQueue<T>::TPQueue(int sizeQueue) : size(sizeQueue),
 begin(0), end(0), count(0) {
     arr = new T[size + 1];
 }
-template<typename T> TPQueue<T>::~TQueue() {
+template<typename T> TPQueue<T>::~TPQueue() {
     delete[] arr;
 }
 template<typename T> void TPQueue<T>::push(const T& item) {
     assert(count < size);
     if (end != 0) {
-        for (int i = end-1; i > -1; --i) {
+        for (int i = end - 1; i > -1; --i) {
             if (arr[i].prior >= item.prior) {
                 arr[i + 1] = item;
                 continue;
@@ -42,7 +42,8 @@ template<typename T> void TPQueue<T>::push(const T& item) {
                 continue;
             }
         }
-    } else {
+    }
+    else {
         arr[begin] = item;
     }
     count++;
@@ -70,7 +71,7 @@ bool TPQueue<T>::isFull() const {
     return count == size;
 }
 struct SYM {
-  char ch;
-  int  prior;
+    char ch;
+    int  prior;
 };
 #endif
