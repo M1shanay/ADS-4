@@ -11,8 +11,8 @@ class TPQueue {
         end;
     int count;
  public:
-    TQueue(int = 100);
-    ~TQueue();
+    TPQueue(int = 100);
+    ~TPQueue();
 
     void push(const T&);
     T pop();
